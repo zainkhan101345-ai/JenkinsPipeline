@@ -13,7 +13,8 @@ pipeline{
 
                   dir('infra') {
                       // commands here run inside workspace/infra
-                      sh 'ls -la'
+                    //   sh 'ls -la'
+                    bat 'dir'
                   }
                 }
         }
