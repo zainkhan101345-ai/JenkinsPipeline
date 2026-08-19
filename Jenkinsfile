@@ -16,7 +16,7 @@ pipeline{
                     //   sh 'ls -la'
                      echo '================ Terraform Init ================'
 
-                        dir('infra') {
+                        dir('AWSInfra') {
                             bat 'terraform init'
                         }
 
