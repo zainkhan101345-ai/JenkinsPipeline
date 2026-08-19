@@ -11,7 +11,6 @@ pipeline{
            steps {
               deleteDir()
 
-                  dir('infra') {
                       // commands here run inside workspace/infra
                     //   sh 'ls -la'
                      echo '================ Terraform Init ================'
@@ -21,7 +20,7 @@ pipeline{
                         }
 
                       echo '================================================='
-                  }
+                  
                 }
         }
     }
