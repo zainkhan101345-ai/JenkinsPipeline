@@ -59,7 +59,7 @@ pipeline {
                     echo '================ Terraform Apply ================'
 
                          dir('AWSInfra') {
-                             bat 'terraform apply'
+                             bat 'terraform apply -auto-approve'
                          }
  
                          echo '================================================='
@@ -77,7 +77,7 @@ pipeline {
                     echo '================ Terraform Destroy ================'
 
                          dir('AWSInfra') {
-                             bat 'terraform destroy'
+                             bat 'terraform destroy -auto-approve'
                          }
 
                          echo '================================================='
