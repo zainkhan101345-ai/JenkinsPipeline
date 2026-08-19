@@ -1,27 +1,26 @@
-pipeline{
+pipeline {
     agent any
-    parameters{
-        booleanParam(name:'Plan Terraform',defaultValue:false,description:'Terraform Plan')
-        booleanParam(name:'Apply Terraform',defaultValue:false,description:'Terraform Apply')
-        booleanParam(name:'Destroy Terraform',defaultValue:false,description:'Terraform Destroy')
 
+    parameters {
+        booleanParam(name: 'Plan Terraform', defaultValue: false, description: 'Terraform Plan')
+        booleanParam(name: 'Apply Terraform', defaultValue: false, description: 'Terraform Apply')
+        booleanParam(name: 'Destroy Terraform', defaultValue: false, description: 'Terraform Destroy')
     }
-    stages{
-       stage('Clone Repo') {
-           steps {
-              deleteDir()
 
-                      // commands here run inside workspace/infra
-                    //   sh 'ls -la'
-                     echo '================ Terraform Init ================'
+    stages {
 
-                        dir('AWSInfra') {
-                            bat 'terraform init'
-                        }
+        stage('Terraform Init') {
+            steps {
 
-                      echo '================================================='
-                  
+                echo '================ Terraform Init ================'
+
+                dir('AWSInfra') {
+                    bat 'dir'
+                    bat 'terraform init'
                 }
+
+                echo '================================================='
+            }
         }
     }
 }
