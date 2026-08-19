@@ -14,7 +14,13 @@ pipeline{
                   dir('infra') {
                       // commands here run inside workspace/infra
                     //   sh 'ls -la'
-                    bat 'dir'
+                     echo '================ Terraform Init ================'
+
+                        dir('infra') {
+                            bat 'terraform init'
+                        }
+
+                      echo '================================================='
                   }
                 }
         }
